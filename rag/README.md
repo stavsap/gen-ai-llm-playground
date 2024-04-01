@@ -8,3 +8,5 @@
 - [nomic](https://ollama.com/library/nomic-embed-text)
 
 - [mxbai](https://ollama.com/library/mxbai-embed-large)
+
+- [minilm](https://ollama.com/library/all-minilm)
