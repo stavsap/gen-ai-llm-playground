@@ -10,3 +10,9 @@
 - [mxbai](https://ollama.com/library/mxbai-embed-large)
 
 - [minilm](https://ollama.com/library/all-minilm)
+
+
+```shell
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+```
