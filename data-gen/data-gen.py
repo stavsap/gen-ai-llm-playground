@@ -13,8 +13,9 @@ args["quantization_config"] = bnb_config
 
 # model = outlines.models.exl2(model_path="models/CapybaraHermes-2.5-Mistral-7B-GPTQ", device="cuda")
 
-# model = outlines.models.llamacpp(model_path="models/mistral-7b-instruct-v0.2.Q2_K.gguf", device="cuda", model_kwargs={"verbose":False})
-model = outlines.models.transformers("mistralai/Mistral-7B-Instruct-v0.2", device="cuda", model_kwargs=args)
+model = outlines.models.llamacpp(model_path="models/mistral-7b-instruct-v0.2.Q2_K.gguf", device="cuda", model_kwargs={"verbose":False})
+
+# model = outlines.models.transformers("mistralai/Mistral-7B-Instruct-v0.2", device="cuda", model_kwargs=args)
 
 prompt = """You are a sentiment-labelling assistant.
 Is the following review positive or negative?
@@ -32,7 +33,7 @@ schema = '''{
     "properties": {
         "name": {
             "title": "Name",
-            "maxLength": 10,
+            "maxLength": 20,
             "type": "string"
         },
         "age": {
@@ -43,7 +44,9 @@ schema = '''{
         "weapon": {"$ref": "#/definitions/Weapon"},
         "strength": {
             "title": "Strength",
-            "type": "integer"
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 100
         }
     },
     "required": ["name", "age", "armor", "weapon", "strength"],
@@ -66,5 +69,5 @@ schema = '''{
 generator = outlines.generate.json(model, schema)
 
 for index in range(0, 10):
-    character = generator("Give me a weak young character description")
+    character = generator("Give me a strong old character description, nordic names")
     print(character)
