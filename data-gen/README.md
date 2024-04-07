@@ -1,13 +1,12 @@
 # Data Generator
 
-wrapping: https://github.com/outlines-dev/outlines
+Wrapping: https://github.com/outlines-dev/outlines
 
 
 https://www.datacamp.com/tutorial/mistral-7b-tutorial
 
 ```shell
 pip install torch torchvision torchaudio --extra-index-url https://download.pytorch.org/whl/cu121
-pip install llama-cpp-python --upgrade --force-reinstall --no-cache-dir --extra-index-url https://abetlen.github.io/llama-cpp-python/whl/123
 pip install -r requirements.txt
 ```
 
@@ -24,7 +23,7 @@ CMake Error at C:/Users/mriedl/AppData/Local/Temp/pip-build-env-vz70r577/normal/
         No CUDA toolset found.
 ```
 
-copy 
+copy: 
 
 ```text
 CUDA 12.1.props
