@@ -12,8 +12,8 @@ args ={}
 args["quantization_config"] = bnb_config
 
 
-model = outlines.models.llamacpp(model_path="mistral-7b-instruct-v0.2.Q2_K.gguf", device="cuda")
-# model = outlines.models.transformers("mistralai/Mistral-7B-Instruct-v0.2", device="cuda", model_kwargs=args)
+# model = outlines.models.llamacpp(model_path="models/mistral-7b-instruct-v0.2.Q2_K.gguf", device="cuda")
+model = outlines.models.transformers("mistralai/Mistral-7B-Instruct-v0.2", device="cuda", model_kwargs=args)
 
 prompt = """You are a sentiment-labelling assistant.
 Is the following review positive or negative?
