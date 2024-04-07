@@ -2,3 +2,4 @@ outlines==0.0.37
 datasets
 accelerate
 bitsandbytes
+exllamav2

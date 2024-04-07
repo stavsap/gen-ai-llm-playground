@@ -11,8 +11,9 @@ bnb_config = BitsAndBytesConfig(
 args ={}
 args["quantization_config"] = bnb_config
 
+# model = outlines.models.exl2(model_path="models/CapybaraHermes-2.5-Mistral-7B-GPTQ", device="cuda")
 
-# model = outlines.models.llamacpp(model_path="models/mistral-7b-instruct-v0.2.Q2_K.gguf", device="cuda")
+# model = outlines.models.llamacpp(model_path="models/mistral-7b-instruct-v0.2.Q2_K.gguf", device="cuda", model_kwargs={"verbose":False})
 model = outlines.models.transformers("mistralai/Mistral-7B-Instruct-v0.2", device="cuda", model_kwargs=args)
 
 prompt = """You are a sentiment-labelling assistant.
@@ -21,9 +22,9 @@ Is the following review positive or negative?
 Review: This restaurant is just awesome! its was so good, i love it!
 """
 
-generator = outlines.generate.choice(model, ["Positive", "Negative"])
-answer = generator(prompt)
-print(answer)
+# generator = outlines.generate.choice(model, ["Positive", "Negative"])
+# answer = generator(prompt)
+# print(answer)
 
 schema = '''{
     "title": "Character",
@@ -63,14 +64,7 @@ schema = '''{
 }'''
 
 generator = outlines.generate.json(model, schema)
-character = generator("Give me a character description")
-print(character)
 
-character = generator("Give me a character description")
-print(character)
-
-character = generator("Give me a character description")
-print(character)
-
-character = generator("Give me a character description")
-print(character)
+for index in range(0, 10):
+    character = generator("Give me a weak young character description")
+    print(character)
